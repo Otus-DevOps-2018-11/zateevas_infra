@@ -1,0 +1,11 @@
+[Unit]
+After=mongod.service
+Requires=mongod.service
+
+[Service]
+WorkingDirectory=/srv/reddit
+ExecStart=/usr/local/bin/puma
+
+[Install]
+WantedBy=multi-user.target
+
