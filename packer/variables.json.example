@@ -1,0 +1,6 @@
+{
+	"project_id":"infra-project-id",
+	"source_image_family":"image",
+	"machine_type":"machine_type",
+	"ssh_username":"user"
+}

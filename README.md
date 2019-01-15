@@ -61,7 +61,7 @@ gcloud compute instances create reddit-app-test \
 --metadata startup-script-url=gs://zateevas_1/startup_script
 ```
 
-## Дополнительное задание 2
+### Дополнительное задание 2
 Команда создания правила firewall для серверов с тегом puma-server
 ```
 gcloud compute firewall-rules create default-puma-server \
@@ -72,3 +72,13 @@ gcloud compute firewall-rules create default-puma-server \
 	--source-ranges 0.0.0.0/0 \
 	--rules tcp:9292
 ```
+
+## Лабораторная №7
+
+1. Шаблон параметризирован
+
+2. Добавлены дополнительные параметры
+
+3. Создан шаблон immutable.json, скрипт deploy.sh немного переделан, создан unit reddit.service. Работоспособность шаблона проверена
+
+4. Создан скрипт для развертывания VM reddit-full. работоспособность скрипта проверена. 
