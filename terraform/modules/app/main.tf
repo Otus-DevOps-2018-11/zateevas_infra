@@ -21,23 +21,26 @@ resource "google_compute_instance" "app" {
   metadata {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
-    connection {
+
+  connection {
     type        = "ssh"
     user        = "appuser"
     agent       = false
     private_key = "${file(var.private_key_path)}"
   }
+
   provisioner "file" {
     source      = "${path.module}/puma.service"
     destination = "/tmp/puma.service"
   }
+
   provisioner "file" {
     source      = "${path.module}/deploy.sh"
     destination = "/tmp/deploy.sh"
   }
 
   provisioner "remote-exec" {
-    inline = ["chmod +x /tmp/deploy.sh","/tmp/deploy.sh ${var.db_address}"]
+    inline = ["chmod +x /tmp/deploy.sh", "/tmp/deploy.sh ${var.db_address}"]
   }
 }
 
@@ -58,4 +61,3 @@ resource "google_compute_firewall" "firewall_puma" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["reddit-app"]
 }
-

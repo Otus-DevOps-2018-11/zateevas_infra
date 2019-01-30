@@ -3,6 +3,7 @@ Description=Puma HTTP Server
 After=network.target
 
 [Service]
+EnvironmentFile=/home/appuser/reddit/env_variables
 Type=simple
 User=zateevas
 WorkingDirectory=/home/appuser/reddit
