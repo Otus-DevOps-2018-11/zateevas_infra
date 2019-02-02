@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
 import json
 import pprint
 with open ("inventory.json", "r") as inventory_file:
