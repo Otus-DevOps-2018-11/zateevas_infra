@@ -34,14 +34,14 @@ resource "google_compute_instance" "app" {
     destination = "/tmp/puma.service"
   }
 
-  provisioner "file" {
-    source      = "${path.module}/deploy.sh"
-    destination = "/tmp/deploy.sh"
-  }
+#  provisioner "file" {
+#    source      = "${path.module}/deploy.sh"
+#    destination = "/tmp/deploy.sh"
+#  }
 
-  provisioner "remote-exec" {
-    inline = ["chmod +x /tmp/deploy.sh", "/tmp/deploy.sh ${var.db_address}"]
-  }
+#  provisioner "remote-exec" {
+#    inline = ["chmod +x /tmp/deploy.sh", "/tmp/deploy.sh ${var.db_address}"]
+#  }
 }
 
 resource "google_compute_address" "app_ip" {
