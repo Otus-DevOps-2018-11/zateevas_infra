@@ -1,0 +1,13 @@
+- name: Ruby provisioning
+  become: true
+  hosts: all
+  tasks:
+        - name: Install ruby
+          apt:
+                update_cache: yes
+                name: "{{ packages  }}" 
+          vars:
+                packages:
+                        -  ruby-full 
+                        -  ruby-bundler
+                        -  build-essential
