@@ -6,3 +6,4 @@ packer/variables.json
 .terraform/
 *.swp
 crash.log
+*.retry

@@ -1,0 +1,28 @@
+---
+- name: Mongod Provisioning
+  hosts: all
+  become: true
+  tasks:
+    - name: Add APT key
+      apt_key:
+          id: EA312927
+          keyserver: keyserver.ubuntu.com
+
+    - name: Add APT repository
+      apt_repository:
+          repo: deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
+          state: present
+
+    - name: Install mongod
+      apt:
+          update_cache: yes
+          name: "{{ packages  }}"
+      vars:
+          packages:
+              - mongodb-org
+
+    - name: Start and enable mongod
+      systemd:
+          enabled: yes
+          state: started
+          name: mongod
