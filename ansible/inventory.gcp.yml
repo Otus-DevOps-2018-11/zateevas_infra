@@ -1,11 +1,12 @@
+---
 plugin: gcp_compute
 filters:
 groups:
-        app: "'app' in name"
-        db: "'db' in name"
+    app: "'app' in name"
+    db: "'db' in name"
 projects:
-         - infra-226313
+  - infra-226313
 scopes:
-          - https://www.googleapis.com/auth/compute
+  - https://www.googleapis.com/auth/compute
 auth_kind: serviceaccount
 service_account_file: ~/gcp_key.json

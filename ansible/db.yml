@@ -6,14 +6,15 @@
       mongo_bind_ip: 0.0.0.0
    
   tasks:
-      - name: Change mongodb config file
-        template:
-            src: templates/mongod.conf.j2
-            dest: /etc/mongod.conf
-            mode: 0644
-        notify: restart mongod
+    - name: Change mongodb config file
+      template:
+          src: templates/mongod.conf.j2
+          dest: /etc/mongod.conf
+          mode: 0644
+      notify: restart mongod
+      
   handlers:
-      - name: restart mongod
-        become: true
-        service: name=mongod state=restarted
+    - name: restart mongod
+      become: true
+      service: name=mongod state=restarted
 
