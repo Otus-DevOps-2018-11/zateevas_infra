@@ -7,3 +7,5 @@ packer/variables.json
 *.swp
 crash.log
 *.retry
+jdauphant.nginx
+vault.key

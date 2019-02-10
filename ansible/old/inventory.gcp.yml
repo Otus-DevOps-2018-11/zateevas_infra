@@ -2,8 +2,8 @@
 plugin: gcp_compute
 filters:
 groups:
-    app: "'app' in name"
-    db: "'db' in name"
+  app: "'app' in name"
+  db: "'db' in name"
 projects:
   - infra-226313
 scopes:
